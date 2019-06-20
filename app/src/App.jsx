@@ -51,7 +51,7 @@ class App extends React.Component {
     }
     else if (formName === 'updateForm') {
       // fire updateItem function
-      console.log('Item Updated!');
+      this.updateItem();
     }
   }
 
@@ -81,6 +81,23 @@ class App extends React.Component {
     .catch(err => {
       console.log(err);
     });
+  }
+
+  updateItem = () => {
+    const item = this.state.itemToUpdate;
+
+    axios
+      .put(`http://localhost:3333/items/${item.id}`, item)
+      .then(res => {
+        this.props.history.push('/item-list');
+        this.setState({
+          items: res.data,
+          itemToUpdate: null
+        });
+      })
+      .catch(err => {
+        console.log(err);
+      });
   }
 
   deleteItem = (id) => {

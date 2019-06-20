@@ -3,9 +3,9 @@ import React from 'react';
 class UpdateItemForm extends React.Component {
   render() {
     return (
-      <div>
+      <div className="form-container">
         <h2>Update Item</h2>
-        <form className="form-container">
+        <form onSubmit={(event) => this.props.onFormSubmit(event, 'updateForm')}>
           <input
             type="text"
             name="name"
