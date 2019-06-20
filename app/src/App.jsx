@@ -11,7 +11,15 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      items: []
+      items: [],
+      itemToAdd: {
+        name: '',
+        price: null,
+        imageUrl: '',
+        desciption: '',
+        shipping: ''
+      },
+      itemToUpdate: null
     };
   }
 
@@ -39,7 +47,7 @@ class App extends React.Component {
             <NavLink to="/item-list">
               Shop
             </NavLink>
-            <NavLink to="/item-form">
+            <NavLink to="/add-item">
               <button className="md-button">Add Item</button>
             </NavLink>
           </div>
@@ -57,7 +65,11 @@ class App extends React.Component {
         />
         <Route
           path="/add-item"
-          render={(props) => <AddItemForm {...props} />} 
+          render={(props) => 
+            <AddItemForm 
+              {...props} 
+              itemToAdd={this.state.itemToAdd} 
+            />} 
         />
         <Route
           path="/update-item"
