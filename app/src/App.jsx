@@ -89,7 +89,7 @@ class App extends React.Component {
     axios
       .put(`http://localhost:3333/items/${item.id}`, item)
       .then(res => {
-        this.props.history.push('/item-list');
+        this.props.history.replace('/item-list');
         this.setState({
           items: res.data,
           itemToUpdate: null
@@ -104,7 +104,7 @@ class App extends React.Component {
     axios
       .delete(`http://localhost:3333/items/${id}`)
       .then(res => {
-        this.props.history.push('/item-list');
+        this.props.history.replace('/item-list');
         this.setState({
           items: res.data
         });
