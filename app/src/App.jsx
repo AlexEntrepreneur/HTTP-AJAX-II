@@ -33,6 +33,15 @@ class App extends React.Component {
       })
   }
 
+  onFormChange = (event, sliceOfState) => {
+    this.setState(prevState => ({
+      [sliceOfState]: {
+        ...prevState[sliceOfState],
+        [event.target.name]: event.target.value
+      }
+    }));
+  }
+
   render() {
     return (
       <div className="App">
@@ -68,7 +77,8 @@ class App extends React.Component {
           render={(props) => 
             <AddItemForm 
               {...props} 
-              itemToAdd={this.state.itemToAdd} 
+              itemToAdd={this.state.itemToAdd}
+              onFormChange={this.onFormChange}
             />} 
         />
         <Route
