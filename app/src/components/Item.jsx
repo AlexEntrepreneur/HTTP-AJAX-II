@@ -33,7 +33,7 @@ function Item(props) {
             <button className="md-button" onClick={() => props.deleteItem(item.id)}>
                 Delete Item
             </button>
-            <button className="md-button">
+            <button className="md-button" onClick={() => props.populateUpdateForm(item)}>
                 Update Item
             </button>
         </div>

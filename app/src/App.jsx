@@ -55,6 +55,13 @@ class App extends React.Component {
     }
   }
 
+  populateUpdateForm = (item) => {
+    this.setState({
+      itemToUpdate: item
+    });
+    this.props.history.push('/update-item');
+  }
+
   addItem = () => {
     axios
     .post('http://localhost:3333/items', this.state.itemToAdd)
@@ -121,6 +128,7 @@ class App extends React.Component {
           render={(props) => <Item 
             items={this.state.items}
             deleteItem={this.deleteItem}
+            populateUpdateForm={this.populateUpdateForm}
             {...props} 
             />}
         />
@@ -136,7 +144,13 @@ class App extends React.Component {
         />
         <Route
           path="/update-item"
-          render={(props) => <UpdateItemForm {...props} />} 
+          render={(props) => 
+            <UpdateItemForm
+              {...props}
+              itemToUpdate={this.state.itemToUpdate}
+              onFormChange={this.onFormChange}
+              onFormSubmit={this.onFormSubmit}
+            />} 
         />
       </div>
     );
