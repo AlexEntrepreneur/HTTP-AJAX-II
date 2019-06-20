@@ -76,6 +76,20 @@ class App extends React.Component {
     });
   }
 
+  deleteItem = (id) => {
+    axios
+      .delete(`http://localhost:3333/items/${id}`)
+      .then(res => {
+        this.props.history.push('/item-list');
+        this.setState({
+          items: res.data
+        });
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }
+
   render() {
     return (
       <div className="App">
@@ -104,7 +118,11 @@ class App extends React.Component {
         />
         <Route 
           path="/item-list/:id" 
-          render={(props) => <Item items={this.state.items} {...props} />} 
+          render={(props) => <Item 
+            items={this.state.items}
+            deleteItem={this.deleteItem}
+            {...props} 
+            />}
         />
         <Route
           path="/add-item"

@@ -30,7 +30,7 @@ function Item(props) {
                 path="/item-list/:id/shipping" 
                 render={(props) => <ItemShipping {...props} item={item} />}
             />
-            <button className="md-button">
+            <button className="md-button" onClick={() => props.deleteItem(item.id)}>
                 Delete Item
             </button>
             <button className="md-button">
