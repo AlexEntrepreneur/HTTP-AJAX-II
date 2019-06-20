@@ -47,12 +47,24 @@ class App extends React.Component {
     event.preventDefault();
     if(formName === 'addForm') {
       // fire addItem function
-      console.log('Item Added!');
+      this.addItem();
     }
     else if (formName === 'updateForm') {
       // fire updateItem function
       console.log('Item Updated!');
     }
+  }
+
+  addItem = () => {
+    axios
+    .post('http://localhost:3333/items', this.state.itemToAdd)
+    .then(res => {
+      debugger;
+      this.setState({
+        items: res.data
+      })
+    })
+    .catch();
   }
 
   render() {
