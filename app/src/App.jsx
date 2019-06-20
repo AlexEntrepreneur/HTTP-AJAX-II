@@ -92,6 +92,7 @@ class App extends React.Component {
               {...props} 
               itemToAdd={this.state.itemToAdd}
               onFormChange={this.onFormChange}
+              onFormSubmit={this.onFormSubmit}
             />} 
         />
         <Route
