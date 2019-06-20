@@ -43,6 +43,16 @@ class App extends React.Component {
     }));
   }
 
+  onFormSubmit = (event, formName) => {
+    event.preventDefault();
+    if(formName === 'addForm') {
+      // fire addItem function
+    }
+    else if (formName === 'updateForm') {
+      // fire updateItem function
+    }
+  }
+
   render() {
     return (
       <div className="App">
