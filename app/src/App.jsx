@@ -47,9 +47,11 @@ class App extends React.Component {
     event.preventDefault();
     if(formName === 'addForm') {
       // fire addItem function
+      console.log('Item Added!');
     }
     else if (formName === 'updateForm') {
       // fire updateItem function
+      console.log('Item Updated!');
     }
   }
 
