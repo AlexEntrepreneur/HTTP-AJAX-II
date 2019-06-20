@@ -61,7 +61,14 @@ class App extends React.Component {
     .then(res => {
       debugger;
       this.setState({
-        items: res.data
+        items: res.data,
+        itemToAdd: {
+          name: '',
+          price: null,
+          imageUrl: '',
+          desciption: '',
+          shipping: ''
+        }
       })
     })
     .catch();
