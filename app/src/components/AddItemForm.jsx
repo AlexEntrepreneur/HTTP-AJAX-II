@@ -10,6 +10,7 @@ class AddItemForm extends React.Component {
             type="text"
             name="name"
             placeholder="name"
+            onChange={(event) => this.props.onFormChange(event, 'itemToAdd')}
           />
           <div className="baseline" />
 
@@ -17,6 +18,7 @@ class AddItemForm extends React.Component {
             type="number"
             name="price"
             placeholder="Price"
+            onChange={(event) => this.props.onFormChange(event, 'itemToAdd')}
           />
           <div className="baseline" />
 
@@ -24,6 +26,7 @@ class AddItemForm extends React.Component {
             type="text"
             name="imageUrl"
             placeholder="Image"
+            onChange={(event) => this.props.onFormChange(event, 'itemToAdd')}
           />
           <div className="baseline" />
 
@@ -31,6 +34,7 @@ class AddItemForm extends React.Component {
             type="text"
             name="description"
             placeholder="Description"
+            onChange={(event) => this.props.onFormChange(event, 'itemToAdd')}
           />
           <div className="baseline" />
 
@@ -38,6 +42,7 @@ class AddItemForm extends React.Component {
             type="text"
             name="shipping"
             placeholder="Shipping"
+            onChange={(event) => this.props.onFormChange(event, 'itemToAdd')}
           />
           <div className="baseline" />
 

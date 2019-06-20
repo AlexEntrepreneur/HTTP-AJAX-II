@@ -34,6 +34,7 @@ class App extends React.Component {
   }
 
   onFormChange = (event, sliceOfState) => {
+    event.persist();
     this.setState(prevState => ({
       [sliceOfState]: {
         ...prevState[sliceOfState],
