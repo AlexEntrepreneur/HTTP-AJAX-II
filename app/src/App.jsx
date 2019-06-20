@@ -4,7 +4,8 @@ import { Route, Link, NavLink } from 'react-router-dom';
 import Home from './components/Home';
 import ItemsList from './components/ItemsList';
 import Item from './components/Item';
-
+import AddItemForm from './components/AddItemForm';
+import UpdateItemForm from './components/UpdateItemForm';
 
 class App extends React.Component {
   constructor() {
@@ -53,6 +54,14 @@ class App extends React.Component {
         <Route 
           path="/item-list/:id" 
           render={(props) => <Item items={this.state.items} {...props} />} 
+        />
+        <Route
+          path="/add-item"
+          render={(props) => <AddItemForm {...props} />} 
+        />
+        <Route
+          path="/update-item"
+          render={(props) => <UpdateItemForm {...props} />} 
         />
       </div>
     );
