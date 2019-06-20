@@ -59,7 +59,6 @@ class App extends React.Component {
     axios
     .post('http://localhost:3333/items', this.state.itemToAdd)
     .then(res => {
-      debugger;
       this.setState({
         items: res.data,
         itemToAdd: {
@@ -69,9 +68,12 @@ class App extends React.Component {
           desciption: '',
           shipping: ''
         }
-      })
+      });
+      this.props.history.push('/item-list');
     })
-    .catch();
+    .catch(err => {
+      console.log(err);
+    });
   }
 
   render() {
